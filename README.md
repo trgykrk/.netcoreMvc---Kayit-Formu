@@ -1,0 +1,2 @@
+# .netcoreMvc Kayit Formu
+ 
