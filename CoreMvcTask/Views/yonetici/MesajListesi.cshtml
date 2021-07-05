@@ -1,0 +1,32 @@
+﻿@using CoreMvcTask.Models
+@model List<Talepler>
+@{
+    ViewData["Title"] = "MesajListesi";
+    Layout = "~/Views/Shared/_YoneticiLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Mesaj ID</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>İletişim Bilgisi</th>
+        <th>E-Posta Adresi</th>
+        <th>Mesaj</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@x.Talep_ID</td>
+    <td>@x.Ad</td>
+    <td>@x.Soyad</td>
+    <td>@x.İletisim</td>
+    <td>@x.Eposta</td>
+    <td>@x.Mesaj</td>
+
+</tr>
+    }
+</table>
+

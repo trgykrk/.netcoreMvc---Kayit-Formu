@@ -1,0 +1,62 @@
+﻿@using CoreMvcTask.Models
+
+@model List<Musteriler>
+@{
+    ViewData["Title"] = "TalepListesi";
+    Layout = "~/Views/Shared/_YoneticiLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Talep ID</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>iletisim</th>
+        <th>E-Posta Adresi</th>
+        <th>İstenilen Hizmet</th>
+        <th>Domain Süresi</th>
+        <th>Domain Adı</th>
+        <th>Uzantı</th>
+        <th>Açıklama</th>
+        <th>Firma Logo</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        if (x.Firma_Logo == null)
+        {
+     <tr>
+         <td>@x.Musterı_ID</td>
+         <td>@x.Adi</td>
+         <td>@x.Soyadi</td>
+         <td>@x.iletisim</td>
+         <td>@x.eposta</td>
+         <td>@x.Urun_Adi</td>
+         <td>@x.Domain_Sure</td>
+         <td>@x.Domain_Adi</td>
+         <td>@x.Uzanti_Adi</td>
+         <td>@x.Aciklama</td>
+         <td>Logo Eklenmedi..</td>
+     </tr>
+        }
+        else { 
+     <tr>
+     
+         <td>@x.Musterı_ID</td>
+         <td>@x.Adi</td>
+         <td>@x.Soyadi</td>
+         <td>@x.iletisim</td>
+         <td>@x.eposta</td>
+         <td>@x.Urun_Adi</td>
+         <td>@x.Domain_Sure</td>
+         <td>@x.Domain_Adi</td>
+         <td>@x.Uzanti_Adi</td>
+         <td>@x.Aciklama</td>
+         <td>
+             <img src="~/Logolar/@x.Firma_Logo" class="rounded-circle" width="80" height="40" />
+         </td>
+     </tr>
+        }
+    }
+        </table>
+

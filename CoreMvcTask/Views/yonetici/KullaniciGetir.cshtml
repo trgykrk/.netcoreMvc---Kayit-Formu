@@ -1,0 +1,35 @@
+﻿@model CoreMvcTask.Models.Kullanicilar
+@{
+    ViewData["Title"] = "KullaniciGetir";
+    Layout = "~/Views/Shared/_YoneticiLayout.cshtml";
+}
+
+@using (Html.BeginForm("KullaniciGüncelle", "yonetici", FormMethod.Post))
+{
+    <b>Kullanıcı ID</b>
+    @Html.TextBoxFor(x => x.Kullanici_ID, new { @class = "form-control" })
+    <br />
+
+    <b>Kullanıcı Adı</b>
+    @Html.TextBoxFor(x => x.Kullanici_Adi, new { @class = "form-control" })
+    <br />
+    <b>Şifre</b>
+    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+    <br />
+
+
+    <b>Yetki Kodu</b>
+    <fieldset>
+        <select id="MovieType" name="Yetki_Kodu" class="zmdi-format-clear-all">
+
+            <option value="1">1</option>
+
+            <option value="2">2</option>
+
+        </select>
+
+    </fieldset>
+    <br />
+
+    <button class="btn btn-success">Bilgileri Güncelle</button>
+}

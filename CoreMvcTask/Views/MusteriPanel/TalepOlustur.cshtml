@@ -1,0 +1,140 @@
+﻿@model CoreMvcTask.Models.LogoEkle
+
+@{
+    ViewData["Title"] = "TalepOlustur";
+    Layout = "~/Views/Shared/_TalepOlusturLayout.cshtml";
+}
+
+<br />
+
+
+
+<form class="form-group" asp-action="TalepOlustur" asp-controller="MusteriPanel" method="post" enctype="multipart/form-data">
+    @if (TempData["Basarili"] != null)
+    {
+        <div class="alert alert-success" role="alert" id="success_message">
+            Talebiniz  Başarılı Bir Şekilde Oluşturuldu.<i class="glyphicon glyphicon-thumbs-up"></i>@TempData["Basarili"]
+        </div>
+    }
+    <b>Adınız</b>
+    @Html.TextBoxFor(x => x.Adi, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Adi, "", new { @style = "color:red" }) <br />
+
+    <b>Soyadınız</b>
+    @Html.TextBoxFor(x => x.Soyadi, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Soyadi, "", new { @style = "color:red" })<br />
+
+    <b>İletişim Numarası</b>
+    @Html.TextBoxFor(x => x.iletisim, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.iletisim, "", new { @style = "color:red" }) <br />
+    <b>E-Posta Adresiniz</b>
+    @Html.TextBoxFor(x => x.eposta, new { @class = "form-control", @placeholder = "Örneğin: ..@gmail.com" })
+    @Html.ValidationMessageFor(x => x.eposta, "", new { @style = "color:red" }) <br />
+
+    <b>Hangi Hizmetimizden  Faydalanmak İstiyorsunuz?</b>
+    <fieldset>
+        <select id="MovieType" name="Urun_Adi" class="form-control">
+
+            <option selected="selected" value="Web Sitesi">Web Sitesi</option>
+
+            <option value="Otomasyon">Otomasyon</option>
+
+            <option value="Mobil uygulama">Mobil Uygulama</option>
+
+            <option value="E-Ticaret">E-Ticaret</option>
+
+            <option value="Sosyal Medya Yönetimi">Sosyal Medya Yönetimi</option>
+
+            <option value="Danuşmanlık">Danışmanlık</option>
+
+            <option value="AR-GE Ve İnovasyon">AR-GE Ve İnovasyon</option>
+
+            <option value="Oyun Tasarımı">Oyun Tasarımı</option>
+
+            <option value="Yapay Zeka Uygulamaları">Yapay Zeka Uygulamaları</option>
+
+        </select>
+
+
+    </fieldset> <br />
+    <b>Domain Süresi Seçiniz(Yıl Bazında değerlendirilir )</b>
+    <fieldset>
+        <select id="MovieType" name="Domain_Sure" class="form-control">
+
+            <option value="2">2</option>
+
+            <option value="3">3</option>
+
+            <option value="4">4</option>
+
+            <option selected="selected" value="5">5</option>
+
+            <option value="6">6</option>
+
+            <option value="7">7</option>
+
+            <option value="8">8</option>
+
+            <option value="9">9</option>
+
+            <option value="10">10</option>
+
+        </select>
+
+
+    </fieldset> <br />
+    <b>İstemiş Olduğunuz Domain Adını Giriniz</b>
+    @Html.TextBoxFor(x => x.Domain_Adi, new { @class = "form-control", @placeholder = "Örneğin: www.'turgaykarakoc'.com" })
+    @Html.ValidationMessageFor(x => x.Domain_Adi, "", new { @style = "color:red" })
+    <br />
+
+    <b>İstemiş Olduğunuz Uzantıyı Seçiniz</b>
+    <fieldset>
+        <select id="MovieType" name="Uzanti_Adi" class="form-control">
+
+            <option selected="selected" value=".com">.com</option>
+
+            <option value=".com.tr">.com.tr</option>
+
+            <option value=".net">.net</option>
+
+            <option value=".net.tr">.net.tr</option>
+
+            <option value=".org">.org</option>
+
+            <option value=".org.tr">.org.tr</option>
+
+            <option value=".edu">.edu</option>
+
+            <option value=".edu.tr">.edu.tr</option>
+
+            <option value=".gov">.gov</option>
+
+            <option value=".gov.tr">.gov.tr</option>
+
+            <option value=".info">.info</option>
+
+            <option value=".info.tr">.info.tr</option>
+
+        </select>
+
+
+    </fieldset> <br />
+
+    <b>Açıklama  Girebilirsiniz</b>
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", @placeholder = "Max 100 Karakter Giriniz." })<br />
+    @Html.ValidationMessageFor(x => x.Aciklama, "", new { @style = "color:red" })     <br />
+
+    <b>Kendi Logonuzu Ekleyebilirsiniz</b><br />
+    <input type="file" name="Firma_Logo" /> <br />
+    <br />
+
+    <button class="btn btn-success">Gönder</button>
+
+
+
+
+
+</form>
+
+

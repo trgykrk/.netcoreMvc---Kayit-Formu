@@ -1,0 +1,28 @@
+﻿@using CoreMvcTask.Models
+@model List<Kullanicilar>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_YoneticiLayout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Yetki Kodu</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    @foreach (var x in Model) {
+<tr>
+    <td>@x.Kullanici_Adi</td>
+    <td>@x.Sifre</td>
+    <td>@x.Yetki_Kodu</td>
+    <td><a href="/yonetici/KullaniciSil/@x.Kullanici_ID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/yonetici/KullaniciGetir/@x.Kullanici_ID" class="btn btn-success">Güncelle</a></td>
+</tr>
+    }
+
+</table>
+
+<a href="/yonetici/YeniKullanici" class="btn btn-primary">Yeni Kullanıcı Ekle</a>
+

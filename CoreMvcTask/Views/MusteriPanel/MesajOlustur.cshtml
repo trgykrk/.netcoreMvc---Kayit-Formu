@@ -1,0 +1,36 @@
+﻿@model CoreMvcTask.Models.Talepler
+@{
+    ViewData["Title"] = "MesajOlustur";
+    Layout = "~/Views/Shared/_TalepOlusturLayout.cshtml";
+}
+
+<br />
+<form class="form-group" method="post">
+    <b>Adınız</b>
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Ad, "", new { @style = "color:red" }) <br />
+    <b>Soyadınız</b>
+    @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Soyad, "", new { @style = "color:red" })<br />
+    <b>İletişim Bilgisi</b>
+    @Html.TextBoxFor(x => x.İletisim, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.İletisim, "", new { @style = "color:red" })<br />
+    <b>E-Posta Adresiniz</b>
+    @Html.TextBoxFor(x => x.Eposta, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Eposta, "", new { @style = "color:red" }) <br />
+    <b>Mesajınız</b>
+    @Html.TextBoxFor(x => x.Mesaj, new { @class = "form-control" })<br />
+
+    <button class="btn btn-success">Gönder</button>
+
+    @if (TempData["Basarili"] != null)
+    {
+        <!-- Success message -->
+        <div class="alert alert-success" role="alert" id="success_message">
+            Mesajınız Tarafımıza Başarılı Bir Şekilde İletildi <i class="glyphicon glyphicon-thumbs-up"></i>@TempData["Basarili"]
+        </div>
+    }
+
+
+
+</form>

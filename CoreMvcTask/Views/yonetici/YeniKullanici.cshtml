@@ -1,0 +1,30 @@
+﻿@model CoreMvcTask.Models.Kullanicilar
+@{
+    ViewData["Title"] = "YeniKullanici";
+    Layout = "~/Views/Shared/_YoneticiLayout.cshtml";
+}
+
+<form class="form-group" asp-action="YeniKullanici"  method="post" >
+    <b>Kullanıcı Adı</b>
+    @Html.TextBoxFor(x => x.Kullanici_Adi, new { @class = "form-control" }) <br />
+    <b>Şifre</b>
+    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })<br />
+ 
+
+    <b>Yetki Kodu</b>
+    <fieldset>
+        <select id="MovieType" name="Yetki_Kodu" class="zmdi-format-clear-all">
+
+            <option selected="selected" value="1">1</option>
+
+            <option value="2">2</option>
+
+        </select>
+
+    </fieldset> <br />
+
+    <button class="btn btn-success">Kullanıcı Oluştur</button>
+
+</form>
+
+
